@@ -57,4 +57,17 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\color.hlsl">
+      <Filter>资源文件</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\color_ps.cso">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Shaders\color_vs.cso">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
 </Project>

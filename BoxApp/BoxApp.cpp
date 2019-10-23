@@ -8,9 +8,9 @@
 //   Hold the right mouse button down and move the mouse to zoom in and out.
 //***************************************************************************************
 
-#include "triangle/d3dApp.h"
-#include "triangle/MathHelper.h"
-#include "triangle/UploadBuffer.h"
+#include "d3dApp.h"
+#include "MathHelper.h"
+#include "UploadBuffer.h"
 
 using Microsoft::WRL::ComPtr;
 using namespace DirectX;

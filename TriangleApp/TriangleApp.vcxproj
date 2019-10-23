@@ -35,6 +35,19 @@
     <ClCompile Include="MathHelper.cpp" />
     <ClCompile Include="TriangleApp.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\color.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\color_ps.cso">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Shaders\color_vs.cso">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{AC92A21D-1887-46BC-8ED2-62D9ADA44978}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
