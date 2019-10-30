@@ -318,18 +318,22 @@ void TriangleApp::BuildShadersAndInputLayout()
 
 void TriangleApp::BuildTriangleGeometry()
 {
-	std::array<Vertex, 3> vertices =
+	std::array<Vertex, 4> vertices =
 	{
-		Vertex({ XMFLOAT3(+0.0f, +0.0f, 0.0f), XMFLOAT4(Colors::Blue) }),
-		Vertex({ XMFLOAT3(+0.0f, +2.0f, 0.0f), XMFLOAT4(Colors::Green) }),
-		Vertex({ XMFLOAT3(+1.5f, +1.5f, 0.0f), XMFLOAT4(Colors::Red) }),
+		Vertex({ XMFLOAT3(+0.0f, +0.0f, -1.5f), XMFLOAT4(Colors::Blue) }),
+		Vertex({ XMFLOAT3(+0.0f, +2.0f, -1.5f), XMFLOAT4(Colors::Green) }),
+		Vertex({ XMFLOAT3(+1.5f, +1.5f, -1.5f), XMFLOAT4(Colors::Red) }),
+		Vertex({ XMFLOAT3(-1.5f, -1.5f, 1.0f), XMFLOAT4(Colors::Black) }),
 	};
 
-	std::array<std::uint16_t, 6> indices =
+	std::array<std::uint16_t, 12> indices =
 	{
 		// front face
 		0, 1, 2,
-		0, 2, 3
+		0, 2, 3,
+		0, 3, 1,
+		1, 2, 3,
+
 	};
 
 	const UINT vbByteSize = (UINT)vertices.size() * sizeof(Vertex);

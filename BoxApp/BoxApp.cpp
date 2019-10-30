@@ -36,6 +36,7 @@ public:
 	~BoxApp();
 
 	virtual bool Initialize()override;
+	void BoxApp::Rotate();
 
 private:
     virtual void OnResize()override;
@@ -230,6 +231,8 @@ void BoxApp::Draw(const GameTimer& gt)
 	// done for simplicity.  Later we will show how to organize our rendering code
 	// so we do not have to wait per frame.
 	FlushCommandQueue();
+
+	Rotate();
 }
 
 void BoxApp::OnMouseDown(WPARAM btnState, int x, int y)
@@ -244,6 +247,17 @@ void BoxApp::OnMouseUp(WPARAM btnState, int x, int y)
 {
     ReleaseCapture();
 }
+
+void BoxApp::Rotate()
+{
+
+	mTheta += 0.001f;
+	//mPhi += 0.001f;
+
+	//// Restrict the angle mPhi.
+	//mPhi = MathHelper::Clamp(mPhi, 0.1f, MathHelper::Pi - 0.1f);
+}
+
 
 void BoxApp::OnMouseMove(WPARAM btnState, int x, int y)
 {
@@ -366,13 +380,13 @@ void BoxApp::BuildBoxGeometry()
     std::array<Vertex, 8> vertices =
     {
         Vertex({ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(Colors::White) }),
-		Vertex({ XMFLOAT3(-1.0f, +1.0f, -1.0f), XMFLOAT4(Colors::Black) }),
-		Vertex({ XMFLOAT3(+1.0f, +1.0f, -1.0f), XMFLOAT4(Colors::Red) }),
+		//Vertex({ XMFLOAT3(-1.0f, +1.0f, -1.0f), XMFLOAT4(Colors::Black) }),
+		//Vertex({ XMFLOAT3(+1.0f, +1.0f, -1.0f), XMFLOAT4(Colors::Red) }),
 		Vertex({ XMFLOAT3(+1.0f, -1.0f, -1.0f), XMFLOAT4(Colors::Green) }),
 		Vertex({ XMFLOAT3(-1.0f, -1.0f, +1.0f), XMFLOAT4(Colors::Blue) }),
-		Vertex({ XMFLOAT3(-1.0f, +1.0f, +1.0f), XMFLOAT4(Colors::Yellow) }),
-		Vertex({ XMFLOAT3(+1.0f, +1.0f, +1.0f), XMFLOAT4(Colors::Cyan) }),
-		Vertex({ XMFLOAT3(+1.0f, -1.0f, +1.0f), XMFLOAT4(Colors::Magenta) })
+		//Vertex({ XMFLOAT3(-1.0f, +1.0f, +1.0f), XMFLOAT4(Colors::Yellow) }),
+		//Vertex({ XMFLOAT3(+1.0f, +1.0f, +1.0f), XMFLOAT4(Colors::Cyan) }), // ÇàÉ«
+		Vertex({ XMFLOAT3(+1.0f, -1.0f, +1.0f), XMFLOAT4(Colors::Magenta) }) // ÑóºìÉ«
     };
 
 	std::array<std::uint16_t, 36> indices =
@@ -394,8 +408,8 @@ void BoxApp::BuildBoxGeometry()
 		3, 6, 7,
 
 		// top face
-		1, 5, 6,
-		1, 6, 2,
+		//1, 5, 6,
+		//1, 6, 2,
 
 		// bottom face
 		4, 0, 3,
