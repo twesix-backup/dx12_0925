@@ -408,8 +408,8 @@ void BoxApp::BuildBoxGeometry()
 		3, 6, 7,
 
 		// top face
-		1, 5, 6,
-		1, 6, 2,
+		//1, 5, 6,
+		//1, 6, 2,
 
 		// bottom face
 		4, 0, 3,
